@@ -1,0 +1,106 @@
+package teste_lemaf;
+
+/*
+    Sistema desenvolvido para Avaliação Técnica - SUPORTE - LEMAF / FUNDECC / UFLA
+
+    O sistema captura informações digitadas pelo usuário afim de lhe mostrar o aluguel de 
+    carro mais barato considerando as tarifas de SouthCar, WhestCar e NorthCar.
+    
+    Trabalhei de forma que o sistema armazene somente valores inteiros e foquei na lógica da programação 
+    para deixar o cód. fonte o mais leve possível sem a necessidade de converter valores String em Inteiro. 
+    
+    O sistema não armazena os valores das tarifas de locação. 
+    O foco principal foi direcionado para as regras do negócio bem como a lógica da programação.
+
+*/
+
+// Importação da classe scanner
+import java.util.Scanner;
+
+
+public class Teste_Lemaf {
+    public static void main(String[] args) {
+        
+        // Objeto da classe scanner para receber dados digitados pelo usuário.
+        Scanner input = new Scanner(System.in);
+
+        //**************** Caixa de diálogo para seleção do dia da semana
+        // Variável diaSemana do tipo int para receber o valor do dia da semana digitado pelo usuário. 
+        //Considerando 1 para dias da semana e 2 para final de semana
+            System.out.println("Escolha o dia da semana:");
+            System.out.println("   1 - Dia de Semana");
+            System.out.println("   2 - Final de Semana");
+            System.out.print("\nDigite apenas o número da correspodência: ");
+            int diaSemana = input.nextInt();            
+        //****************
+            
+        //**************** Caixa de diálogo para seleção do tipo de cliente
+        // Variável tipoCliente do tipo int para receber o valor do dia da semana digitado pelo usuário. 
+        //Considerando 1 para cliente regular e 2 para cliente fidelidade
+        
+
+            System.out.println("\n\nSelecione o tipo de cliente");
+            System.out.println("   1 - Regular");
+            System.out.println("   2 - Fidelidade");  
+            System.out.printf("\nDigite apenas o número da correspodência: ");
+            int tipoCliente = input.nextInt();
+
+        //****************
+            
+            
+        //**************** Caixa de diálogo para seleção da quantidade de passageiros
+        // Variável qtdPassageiros do tipo int para receber a quantidade de passageiros.    
+            System.out.print("\n\nEscolha a quantidade de passageiros (Considera até 7 passageiros): ");
+            int qtdPassageiros = input.nextInt();
+            System.out.println("");
+
+        //**************** estrutura de comparação das variáveis
+        // Considerações:
+        //      diaSemana = 1 >>>> Aluguel para dias da semana    
+        //      diaSemana = 2 >>>> Aluguel para finais de semana
+        //
+        //      tipoCliente = 1 >>>> Cliente Regular
+        //      tipoCliente = 2 >>>> Cliente Cartão Fidelidade
+        //
+        //      qtdPassageiros <= 4 Carros SouthCar Carros Compactos
+        //      qtdPassageiros <= 2 Carros WhestCar Carros Esportivos
+        //      qtdPassageiros <= 7 Carros NorthCar Carros SUV’s   
+
+            if((diaSemana == 1)){
+              if((tipoCliente == 1)){
+                if ((qtdPassageiros <= 2)){
+                    System.out.println("Alugue o carro em SouthCar. Carro Compacto no valor de R$ 210/dia");
+                } else 
+                    if ((qtdPassageiros <= 4)){
+                        System.out.println("Alugue o carro em SouthCar. Carro Compacto no valor de R$ 210/dia");
+                    } else System.out.println("Alugue o carro em NorthCar. Carro SUV no valor de R$ 630/dia");
+              }  else 
+                if((tipoCliente == 2)){
+                    if ((qtdPassageiros <= 2)){
+                        System.out.println("Alugue o carro em SouthCar ou em WestCar. SouthCar com Carro Compacto para até 4 passageiros no valor de R$ 150/dia ou NorthCar com Carro Esportivo para até 2 passageiros no valor de R$ 150/dia");
+                    } else
+                        if ((qtdPassageiros <= 4)){
+                            System.out.println("Alugue o carro em SouthCar. Carro Compacto no valor de R$ 150/dia");
+                        } else System.out.println("Alugue carro em NorthCar. Carro SUV no calor de R$ 580/dia");
+                }
+            } else
+                if((diaSemana == 2)){
+                    if((tipoCliente == 1)){
+                        if ((qtdPassageiros <= 2)){
+                            System.out.println("Alugue o carro em SouthCar ou em WestCar. SouthCar com Carro Compacto para até 4 passageiros no valor de R$ 200/dia ou NorthCar com Carro Esportivo para até 2 passageiros no valor de R$ 200/dia");
+                        } else
+                            if ((qtdPassageiros <= 4)){
+                                System.out.println("Alugue o carro em SouthCar. Carro Compacto no valor de R$ 200/dia");
+                            } else System.out.println("Alugue carro em NorthCar. Carro SUV no valor de R$ 600/dia");
+                    } else
+                        if((tipoCliente == 2)){
+                            if ((qtdPassageiros <= 2)){
+                                System.out.println("Alugue o carro em SouthCar ou em WestCar. SouthCar com Carro Compacto para até 4 passageiros no valor de R$ 90/dia ou NorthCar com Carro Esportivo para até 2 passageiros no valor de R$ 90/dia");
+                            } else
+                                if ((qtdPassageiros <= 4)){
+                                    System.out.println("Alugue o carro em SouthCar. Carro Compacto no valor de R$ 90/dia");
+                                } else System.out.println("Alugue carro em NorthCar. Carro SUV no valor de R$ 590/dia");
+                        }
+                }
+    }
+}
