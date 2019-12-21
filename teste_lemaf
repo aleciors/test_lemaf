@@ -1,4 +1,4 @@
-package locacao;
+package teste_lemaf;
 
 /*
     Sistema desenvolvido para Avaliação Técnica - SUPORTE - LEMAF / FUNDECC / UFLA
@@ -18,7 +18,7 @@ package locacao;
 import java.util.Scanner;
 
 
-public class Locacao {
+public class Teste_Lemaf {
     public static void main(String[] args) {
         
         // Variáveis
